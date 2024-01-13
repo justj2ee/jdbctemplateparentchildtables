@@ -1,0 +1,15 @@
+insert into customer (id, fname, lname, address, city, state, zip_cd, phone_no) values (1,'Thomas', 'Epps', '118 Lincoln Street', 'Jersey City', 'NJ', '07307-3636','N/A');
+insert into customer (id, fname, lname, address, city, state, zip_cd, phone_no) values (2,'Jeremiah', 'Jones', '205 Johnson Street', 'Newark', 'NJ', '07312','N/A');
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (1, 'Red Snapper', 15.00);
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (2, 'Whole Mile', 5.00);
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (3, 'Wonder Bread', 1.75);
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (4, 'Calf Liver', 2.00);
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (5, 'Ground Beef', 3.75);
+INSERT INTO PRODUCT (ID, DESCRIPTION, PRICE) VALUES (6, 'Peas and Carrots', 1.75);
+insert into orders (id, cust_id, order_date) values (1,1,current_date);
+insert into orders (id, cust_id, order_date) values (2,2,current_date);
+insert into order_items (id, order_id, prod_id) values (1,1,1);
+insert into order_items (id, order_id, prod_id) values (1,1,2);
+insert into order_items (id, order_id, prod_id) values (1,1,3);
+insert into order_items (id, order_id, prod_id) values (1,1,4);
+insert into order_items (id, order_id, prod_id) values (1,1,5);
