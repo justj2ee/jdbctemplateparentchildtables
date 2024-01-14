@@ -3,9 +3,9 @@ package com.example.demo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Optional;
 
-import org.junit.jupiter.api.ClassOrderer.OrderAnnotation;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -14,8 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.dao.CustomerDAO;
+import com.example.demo.dao.OrderDAO;
 import com.example.demo.dao.ProductDAO;
 import com.example.demo.model.Customer;
+import com.example.demo.model.Orders;
 import com.example.demo.model.Product;
 
 @SpringBootTest
@@ -28,6 +30,7 @@ class DemoApplicationTests {
 	
 	@Autowired CustomerDAO customerDAO;
 	@Autowired ProductDAO productDAO;
+	@Autowired OrderDAO orderDAO;
 	
 	@Test
 	@Order(1)
@@ -84,5 +87,29 @@ class DemoApplicationTests {
 		int rowsDeleted=productDAO.delete(7);
 		assertEquals(1,rowsDeleted);
 	}
-
+	
+	@Test
+	@Order(7)
+	void getOrderTest() {
+		Optional<Orders> order = orderDAO.get(1);
+		if (order.isPresent())
+			assertEquals(1,order.get().getCust_id());
+	}
+	@Test
+	@Order(8)
+	void saveOrderTest() {
+		Orders order = new Orders();
+		order.setId(2);
+		order.setCust_id(1);
+		order.setOrder_date(new Date());
+		int rowsSaved=orderDAO.save(order);
+		assertEquals(1,rowsSaved);
+	}
+	
+	@Test
+	@Order(9)
+	void deleteOrdersTest() {
+		int rowsDeleted=orderDAO.delete(1);
+		assertEquals(1,rowsDeleted);
+	}
 }
