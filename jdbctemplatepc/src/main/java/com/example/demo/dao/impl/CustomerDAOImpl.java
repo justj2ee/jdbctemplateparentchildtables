@@ -70,13 +70,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		SqlParameterSource namedParameters = new MapSqlParameterSource("FNAME", customer.getfName())
 				.addValue("LNAME", customer.getlName())
 				.addValue("ID", customer.getId())
-				.addValue("FNAME", customer.getfName())
-				.addValue("FNAME", customer.getfName())
 				.addValue("ADDRESS",customer.getAddress())
 				.addValue("CITY", customer.getCity())
 				.addValue("STATE", customer.getState())
 				.addValue("ZIP_CD", customer.getZip_cd())
-				.addValue("FNAME", customer.getfName())
 				.addValue("PHONE_NO", customer.getPhone_no());
 			return namedParameterJdbcTemplate.update(UPDATE, namedParameters);
 		
