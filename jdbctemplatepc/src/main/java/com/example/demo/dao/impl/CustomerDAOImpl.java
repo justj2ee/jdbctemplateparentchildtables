@@ -78,7 +78,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 				.addValue("ZIP_CD", customer.getZip_cd())
 				.addValue("FNAME", customer.getfName())
 				.addValue("PHONE_NO", customer.getPhone_no());
-			return namedParameterJdbcTemplate.update(SAVE, namedParameters);
+			return namedParameterJdbcTemplate.update(UPDATE, namedParameters);
 		
 	}
 
