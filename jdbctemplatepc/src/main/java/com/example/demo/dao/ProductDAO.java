@@ -1,5 +1,7 @@
 package com.example.demo.dao;
 
-public interface ProductDAO {
+import com.example.demo.model.Product;
+
+public interface ProductDAO extends DAO<Product> {
 
 }
